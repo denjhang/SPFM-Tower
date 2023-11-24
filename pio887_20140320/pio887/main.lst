@@ -1,0 +1,680 @@
+gplink-1.2.0 #980 (May 17 2013)
+Copyright (c) 1998-2013 gputils project
+Listing File Generated: 3-23-2014  11:32:02
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 3.3.0 #8604 (May 11 2013) (MINGW32)
+                                           ; This file was generated Sun Mar 23 11:32:00 2014
+                                           ;--------------------------------------------------------
+                                           ; PIC port for the 14-bit core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"main.c"
+                                           	list	p=16f887
+                                           	radix dec
+                                           	include "p16f887.inc"
+                                                   LIST
+                                           
+                                           ;==========================================================================
+                                           ;  MPASM PIC16F887 processor include
+                                           ; 
+                                           ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                                           ;==========================================================================
+                                           
+                                                   NOLIST
+                                           ;--------------------------------------------------------
+                                           ; config word(s)
+                                           ;--------------------------------------------------------
+002007   2cd2     goto    0x4d2            	__config _CONFIG1, 0x2cd2
+002008   3fff     addlw   0xff             	__config _CONFIG2, 0x3fff
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_STATUSbits
+                                           	extern	_PORTAbits
+                                           	extern	_PORTBbits
+                                           	extern	_PORTCbits
+                                           	extern	_PORTDbits
+                                           	extern	_PORTEbits
+                                           	extern	_INTCONbits
+                                           	extern	_PIR1bits
+                                           	extern	_PIR2bits
+                                           	extern	_T1CONbits
+                                           	extern	_T2CONbits
+                                           	extern	_SSPCONbits
+                                           	extern	_CCP1CONbits
+                                           	extern	_RCSTAbits
+                                           	extern	_CCP2CONbits
+                                           	extern	_ADCON0bits
+                                           	extern	_OPTION_REGbits
+                                           	extern	_TRISAbits
+                                           	extern	_TRISBbits
+                                           	extern	_TRISCbits
+                                           	extern	_TRISDbits
+                                           	extern	_TRISEbits
+                                           	extern	_PIE1bits
+                                           	extern	_PIE2bits
+                                           	extern	_PCONbits
+                                           	extern	_OSCCONbits
+                                           	extern	_OSCTUNEbits
+                                           	extern	_SSPCON2bits
+                                           	extern	_MSKbits
+                                           	extern	_SSPMSKbits
+                                           	extern	_SSPSTATbits
+                                           	extern	_WPUBbits
+                                           	extern	_IOCBbits
+                                           	extern	_VRCONbits
+                                           	extern	_TXSTAbits
+                                           	extern	_SPBRGbits
+                                           	extern	_SPBRGHbits
+                                           	extern	_PWM1CONbits
+                                           	extern	_ECCPASbits
+                                           	extern	_PSTRCONbits
+                                           	extern	_ADCON1bits
+                                           	extern	_WDTCONbits
+                                           	extern	_CM1CON0bits
+                                           	extern	_CM2CON0bits
+                                           	extern	_CM2CON1bits
+                                           	extern	_SRCONbits
+                                           	extern	_BAUDCTLbits
+                                           	extern	_ANSELbits
+                                           	extern	_ANSELHbits
+                                           	extern	_EECON1bits
+                                           	extern	_INDF
+                                           	extern	_TMR0
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_FSR
+                                           	extern	_PORTA
+                                           	extern	_PORTB
+                                           	extern	_PORTC
+                                           	extern	_PORTD
+                                           	extern	_PORTE
+                                           	extern	_PCLATH
+                                           	extern	_INTCON
+                                           	extern	_PIR1
+                                           	extern	_PIR2
+                                           	extern	_TMR1
+                                           	extern	_TMR1L
+                                           	extern	_TMR1H
+                                           	extern	_T1CON
+                                           	extern	_TMR2
+                                           	extern	_T2CON
+                                           	extern	_SSPBUF
+                                           	extern	_SSPCON
+                                           	extern	_CCPR1
+                                           	extern	_CCPR1L
+                                           	extern	_CCPR1H
+                                           	extern	_CCP1CON
+                                           	extern	_RCSTA
+                                           	extern	_TXREG
+                                           	extern	_RCREG
+                                           	extern	_CCPR2
+                                           	extern	_CCPR2L
+                                           	extern	_CCPR2H
+                                           	extern	_CCP2CON
+                                           	extern	_ADRESH
+                                           	extern	_ADCON0
+                                           	extern	_OPTION_REG
+                                           	extern	_TRISA
+                                           	extern	_TRISB
+                                           	extern	_TRISC
+                                           	extern	_TRISD
+                                           	extern	_TRISE
+                                           	extern	_PIE1
+                                           	extern	_PIE2
+                                           	extern	_PCON
+                                           	extern	_OSCCON
+                                           	extern	_OSCTUNE
+                                           	extern	_SSPCON2
+                                           	extern	_PR2
+                                           	extern	_MSK
+                                           	extern	_SSPADD
+                                           	extern	_SSPMSK
+                                           	extern	_SSPSTAT
+                                           	extern	_WPUB
+                                           	extern	_IOCB
+                                           	extern	_VRCON
+                                           	extern	_TXSTA
+                                           	extern	_SPBRG
+                                           	extern	_SPBRGH
+                                           	extern	_PWM1CON
+                                           	extern	_ECCPAS
+                                           	extern	_PSTRCON
+                                           	extern	_ADRESL
+                                           	extern	_ADCON1
+                                           	extern	_WDTCON
+                                           	extern	_CM1CON0
+                                           	extern	_CM2CON0
+                                           	extern	_CM2CON1
+                                           	extern	_EEDAT
+                                           	extern	_EEDATA
+                                           	extern	_EEADR
+                                           	extern	_EEDATH
+                                           	extern	_EEADRH
+                                           	extern	_SRCON
+                                           	extern	_BAUDCTL
+                                           	extern	_ANSEL
+                                           	extern	_ANSELH
+                                           	extern	_EECON1
+                                           	extern	_EECON2
+                                           	extern	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_sendByte
+                                           	global	_main
+                                           
+                                           	global PSAVE
+                                           	global SSAVE
+                                           	global WSAVE
+                                           	global STK12
+                                           	global STK11
+                                           	global STK10
+                                           	global STK09
+                                           	global STK08
+                                           	global STK07
+                                           	global STK06
+                                           	global STK05
+                                           	global STK04
+                                           	global STK03
+                                           	global STK02
+                                           	global STK01
+                                           	global STK00
+                                           
+                                           sharebank udata_ovr 0x0070
+                                           PSAVE	res 1
+                                           SSAVE	res 1
+                                           WSAVE	res 1
+                                           STK12	res 1
+                                           STK11	res 1
+                                           STK10	res 1
+                                           STK09	res 1
+                                           STK08	res 1
+                                           STK07	res 1
+                                           STK06	res 1
+                                           STK05	res 1
+                                           STK04	res 1
+                                           STK03	res 1
+                                           STK02	res 1
+                                           STK01	res 1
+                                           STK00	res 1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_main_0	udata
+                                           r0x1000	res	1
+                                           r0x1001	res	1
+                                           r0x1002	res	1
+                                           r0x1003	res	1
+                                           r0x1004	res	1
+                                           r0x1005	res	1
+                                           r0x1006	res	1
+                                           r0x1007	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; reset vector 
+                                           ;--------------------------------------------------------
+                                           STARTUP	code 0x0000
+000000   0000     nop                      	nop
+000001   118a     bcf     0xa, 0x3         	pagesel __sdcc_gsinit_startup
+000002   120a     bcf     0xa, 0x4         
+000003   2926     goto    0x126            	goto	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_main	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = M
+                                           ;***
+                                           ;entry:  _main	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _sendByte
+                                           ;   _sendByte
+                                           ;   _sendByte
+                                           ;   _sendByte
+                                           ;7 compiler assigned registers:
+                                           ;   r0x1001
+                                           ;   r0x1002
+                                           ;   r0x1003
+                                           ;   r0x1004
+                                           ;   r0x1005
+                                           ;   r0x1006
+                                           ;   r0x1007
+                                           ;; Starting pCode block
+                                           _main	;Function start
+                                           ; 2 exit points
+                                           ;	.line	15; "main.c"	unsigned short flip_cnt = 2000;
+000004   30d0     movlw   0xd0             	MOVLW	0xd0
+000005   1283     bcf     0x3, 0x5         	BANKSEL	r0x1001
+000006   1303     bcf     0x3, 0x6         
+000007   00ad     movwf   0x2d             	MOVWF	r0x1001
+000008   3007     movlw   0x7              	MOVLW	0x07
+000009   00ae     movwf   0x2e             	MOVWF	r0x1002
+                                           ;	.line	16; "main.c"	unsigned char reg_flip = 0;
+00000a   01af     clrf    0x2f             	CLRF	r0x1003
+                                           ;	.line	22; "main.c"	unsigned char cs = 0x00;
+00000b   01b0     clrf    0x30             	CLRF	r0x1004
+                                           ;	.line	25; "main.c"	OSCCON = 0x70;
+00000c   3070     movlw   0x70             	MOVLW	0x70
+00000d   1683     bsf     0x3, 0x5         	BANKSEL	_OSCCON
+00000e   1303     bcf     0x3, 0x6         
+00000f   008f     movwf   0xf              	MOVWF	_OSCCON
+                                           ;	.line	26; "main.c"	OSCTUNE = 0x52;
+000010   3052     movlw   0x52             	MOVLW	0x52
+000011   0090     movwf   0x10             	MOVWF	_OSCTUNE
+                                           ;	.line	28; "main.c"	ANSEL	= 0x00;			// アナログセレクタ禁止
+000012   1683     bsf     0x3, 0x5         	BANKSEL	_ANSEL
+000013   1703     bsf     0x3, 0x6         
+000014   0188     clrf    0x8              	CLRF	_ANSEL
+                                           ;	.line	29; "main.c"	ANSELH	= 0x00;			// アナログセレクタ禁止
+000015   0189     clrf    0x9              	CLRF	_ANSELH
+                                           ;	.line	30; "main.c"	TRISA	= 0xFF;			// 全ビット入力
+000016   30ff     movlw   0xff             	MOVLW	0xff
+000017   1683     bsf     0x3, 0x5         	BANKSEL	_TRISA
+000018   1303     bcf     0x3, 0x6         
+000019   0085     movwf   0x5              	MOVWF	_TRISA
+                                           ;	.line	31; "main.c"	IOCB	= 0x00;			// 割り込み未使用
+00001a   0196     clrf    0x16             	CLRF	_IOCB
+                                           ;	.line	32; "main.c"	WPUB	= 0x00;			// プルアップ未使用
+00001b   0195     clrf    0x15             	CLRF	_WPUB
+                                           ;	.line	33; "main.c"	TRISB	= 0x00;			// 全ビット出力
+00001c   0186     clrf    0x6              	CLRF	_TRISB
+                                           ;	.line	34; "main.c"	TRISC	= 0x80;			// シリアル入力のみ
+00001d   3080     movlw   0x80             	MOVLW	0x80
+00001e   0087     movwf   0x7              	MOVWF	_TRISC
+                                           ;	.line	35; "main.c"	TRISD	= 0x00;			// 全ビット出力
+00001f   0188     clrf    0x8              	CLRF	_TRISD
+                                           ;	.line	36; "main.c"	PORTA	= 0x00;			// ポートAクリア
+000020   1283     bcf     0x3, 0x5         	BANKSEL	_PORTA
+000021   1303     bcf     0x3, 0x6         
+000022   0185     clrf    0x5              	CLRF	_PORTA
+                                           ;	.line	37; "main.c"	PORTB	= 0x00;			// ポートBクリア
+000023   0186     clrf    0x6              	CLRF	_PORTB
+                                           ;	.line	38; "main.c"	PORTC	= 0x00;			// ポートCクリア
+000024   0187     clrf    0x7              	CLRF	_PORTC
+                                           ;	.line	39; "main.c"	PORTD	= 0x01;			// ポートDクリア
+000025   3001     movlw   0x1              	MOVLW	0x01
+000026   0088     movwf   0x8              	MOVWF	_PORTD
+                                           ;	.line	41; "main.c"	BRGH	= 1;			// ハイスピード
+000027   1683     bsf     0x3, 0x5         	BANKSEL	_TXSTAbits
+000028   1303     bcf     0x3, 0x6         
+000029   1518     bsf     0x18, 0x2        	BSF	_TXSTAbits,2
+                                           ;	.line	44; "main.c"	SPBRG	= 1;			// 625000bps
+00002a   3001     movlw   0x1              	MOVLW	0x01
+00002b   0099     movwf   0x19             	MOVWF	_SPBRG
+                                           ;	.line	45; "main.c"	SYNC	= 0;			// 非同期
+00002c   1218     bcf     0x18, 0x4        	BCF	_TXSTAbits,4
+                                           ;	.line	46; "main.c"	SPEN	= 1;			// シリアル有効
+00002d   1283     bcf     0x3, 0x5         	BANKSEL	_RCSTAbits
+00002e   1303     bcf     0x3, 0x6         
+00002f   1798     bsf     0x18, 0x7        	BSF	_RCSTAbits,7
+                                           ;	.line	47; "main.c"	TXEN	= 1;			// 送信許可
+000030   1683     bsf     0x3, 0x5         	BANKSEL	_TXSTAbits
+000031   1303     bcf     0x3, 0x6         
+000032   1698     bsf     0x18, 0x5        	BSF	_TXSTAbits,5
+                                           ;	.line	48; "main.c"	TX9		= 0;			// 8bitモード
+000033   1318     bcf     0x18, 0x6        	BCF	_TXSTAbits,6
+                                           ;	.line	49; "main.c"	RX9		= 0;
+000034   1283     bcf     0x3, 0x5         	BANKSEL	_RCSTAbits
+000035   1303     bcf     0x3, 0x6         
+000036   1318     bcf     0x18, 0x6        	BCF	_RCSTAbits,6
+                                           ;	.line	50; "main.c"	RCIE	= 0;
+000037   1683     bsf     0x3, 0x5         	BANKSEL	_PIE1bits
+000038   1303     bcf     0x3, 0x6         
+000039   128c     bcf     0xc, 0x5         	BCF	_PIE1bits,5
+                                           ;	.line	51; "main.c"	TXIE	= 0;
+00003a   120c     bcf     0xc, 0x4         	BCF	_PIE1bits,4
+                                           ;	.line	52; "main.c"	CREN	= 1;			// 連続受信化
+00003b   1283     bcf     0x3, 0x5         	BANKSEL	_RCSTAbits
+00003c   1303     bcf     0x3, 0x6         
+00003d   1618     bsf     0x18, 0x4        	BSF	_RCSTAbits,4
+                                           ;	.line	54; "main.c"	for(i = 0; i < 32767; i++);
+00003e   30ff     movlw   0xff             	MOVLW	0xff
+00003f   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+000040   1303     bcf     0x3, 0x6         
+000041   00b1     movwf   0x31             	MOVWF	r0x1005
+000042   307f     movlw   0x7f             	MOVLW	0x7f
+000043   00b2     movwf   0x32             	MOVWF	r0x1006
+                                           _00146_DS_
+000044   30ff     movlw   0xff             	MOVLW	0xff
+000045   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+000046   1303     bcf     0x3, 0x6         
+000047   07b1     addwf   0x31, f          	ADDWF	r0x1005,F
+000048   1c03     btfss   0x3, 0           	BTFSS	STATUS,0
+000049   03b2     decf    0x32, f          	DECF	r0x1006,F
+00004a   0831     movf    0x31, w          	MOVF	r0x1005,W
+00004b   0432     iorwf   0x32, w          	IORWF	r0x1006,W
+00004c   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+00004d   2844     goto    0x44             	GOTO	_00146_DS_
+                                           ;	.line	55; "main.c"	for(i = 0; i < 32767; i++);
+00004e   30ff     movlw   0xff             	MOVLW	0xff
+00004f   00b1     movwf   0x31             	MOVWF	r0x1005
+000050   307f     movlw   0x7f             	MOVLW	0x7f
+000051   00b2     movwf   0x32             	MOVWF	r0x1006
+                                           _00149_DS_
+000052   30ff     movlw   0xff             	MOVLW	0xff
+000053   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+000054   1303     bcf     0x3, 0x6         
+000055   07b1     addwf   0x31, f          	ADDWF	r0x1005,F
+000056   1c03     btfss   0x3, 0           	BTFSS	STATUS,0
+000057   03b2     decf    0x32, f          	DECF	r0x1006,F
+000058   0831     movf    0x31, w          	MOVF	r0x1005,W
+000059   0432     iorwf   0x32, w          	IORWF	r0x1006,W
+00005a   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+00005b   2852     goto    0x52             	GOTO	_00149_DS_
+                                           ;	.line	57; "main.c"	PORTD = 0x81;
+00005c   3081     movlw   0x81             	MOVLW	0x81
+00005d   1283     bcf     0x3, 0x5         	BANKSEL	_PORTD
+00005e   1303     bcf     0x3, 0x6         
+00005f   0088     movwf   0x8              	MOVWF	_PORTD
+                                           _00142_DS_
+                                           ;	.line	60; "main.c"	if(--flip_cnt == 0){
+000060   30ff     movlw   0xff             	MOVLW	0xff
+000061   1283     bcf     0x3, 0x5         	BANKSEL	r0x1001
+000062   1303     bcf     0x3, 0x6         
+000063   07ad     addwf   0x2d, f          	ADDWF	r0x1001,F
+000064   1c03     btfss   0x3, 0           	BTFSS	STATUS,0
+000065   03ae     decf    0x2e, f          	DECF	r0x1002,F
+000066   082d     movf    0x2d, w          	MOVF	r0x1001,W
+000067   042e     iorwf   0x2e, w          	IORWF	r0x1002,W
+000068   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+000069   2870     goto    0x70             	GOTO	_00113_DS_
+                                           ;	.line	61; "main.c"	reg_flip = 0;			// レジスタモードへ変更
+00006a   01af     clrf    0x2f             	CLRF	r0x1003
+                                           ;	.line	62; "main.c"	flip_cnt = 10000;
+00006b   3010     movlw   0x10             	MOVLW	0x10
+00006c   00ad     movwf   0x2d             	MOVWF	r0x1001
+00006d   3027     movlw   0x27             	MOVLW	0x27
+00006e   00ae     movwf   0x2e             	MOVWF	r0x1002
+                                           ;	.line	63; "main.c"	continue;
+00006f   2860     goto    0x60             	GOTO	_00142_DS_
+                                           _00113_DS_
+                                           ;	.line	66; "main.c"	if(RCIF){
+000070   1283     bcf     0x3, 0x5         	BANKSEL	_PIR1bits
+000071   1303     bcf     0x3, 0x6         
+000072   1e8c     btfss   0xc, 0x5         	BTFSS	_PIR1bits,5
+000073   2860     goto    0x60             	GOTO	_00142_DS_
+                                           ;	.line	68; "main.c"	if(FERR){
+000074   1d18     btfss   0x18, 0x2        	BTFSS	_RCSTAbits,2
+000075   2879     goto    0x79             	GOTO	_00137_DS_
+                                           ;	.line	70; "main.c"	RCREG = '?';
+000076   303f     movlw   0x3f             	MOVLW	0x3f
+000077   009a     movwf   0x1a             	MOVWF	_RCREG
+000078   2910     goto    0x110            	GOTO	_00138_DS_
+                                           _00137_DS_
+                                           ;	.line	71; "main.c"	}else if(OERR){
+000079   1283     bcf     0x3, 0x5         	BANKSEL	_RCSTAbits
+00007a   1303     bcf     0x3, 0x6         
+00007b   1c98     btfss   0x18, 0x1        	BTFSS	_RCSTAbits,1
+00007c   2882     goto    0x82             	GOTO	_00134_DS_
+                                           ;	.line	73; "main.c"	CREN = 0;
+00007d   1218     bcf     0x18, 0x4        	BCF	_RCSTAbits,4
+                                           ;	.line	74; "main.c"	CREN = 1;
+00007e   1618     bsf     0x18, 0x4        	BSF	_RCSTAbits,4
+                                           ;	.line	75; "main.c"	RCREG = '?';
+00007f   303f     movlw   0x3f             	MOVLW	0x3f
+000080   009a     movwf   0x1a             	MOVWF	_RCREG
+000081   2910     goto    0x110            	GOTO	_00138_DS_
+                                           _00134_DS_
+                                           ;	.line	77; "main.c"	dt = RCREG; // データを保存する
+000082   1283     bcf     0x3, 0x5         	BANKSEL	_RCREG
+000083   1303     bcf     0x3, 0x6         
+000084   081a     movf    0x1a, w          	MOVF	_RCREG,W
+000085   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+000086   1303     bcf     0x3, 0x6         
+000087   00b1     movwf   0x31             	MOVWF	r0x1005
+                                           ;	.line	79; "main.c"	if(reg_flip == 0){
+000088   082f     movf    0x2f, w          	MOVF	r0x1003,W
+000089   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+00008a   28d9     goto    0xd9             	GOTO	_00131_DS_
+                                           ;	.line	80; "main.c"	if(dt == 0xff){
+00008b   0831     movf    0x31, w          	MOVF	r0x1005,W
+00008c   3aff     xorlw   0xff             	XORLW	0xff
+00008d   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+00008e   28bc     goto    0xbc             	GOTO	_00123_DS_
+                                           ;	.line	81; "main.c"	PORTD = 0x01;
+00008f   3001     movlw   0x1              	MOVLW	0x01
+000090   1283     bcf     0x3, 0x5         	BANKSEL	_PORTD
+000091   1303     bcf     0x3, 0x6         
+000092   0088     movwf   0x8              	MOVWF	_PORTD
+                                           ;	.line	82; "main.c"	for(i = 0; i < 20000; i++);
+000093   3020     movlw   0x20             	MOVLW	0x20
+000094   1283     bcf     0x3, 0x5         	BANKSEL	r0x1006
+000095   1303     bcf     0x3, 0x6         
+000096   00b2     movwf   0x32             	MOVWF	r0x1006
+000097   304e     movlw   0x4e             	MOVLW	0x4e
+000098   00b3     movwf   0x33             	MOVWF	r0x1007
+                                           _00152_DS_
+000099   30ff     movlw   0xff             	MOVLW	0xff
+00009a   1283     bcf     0x3, 0x5         	BANKSEL	r0x1006
+00009b   1303     bcf     0x3, 0x6         
+00009c   07b2     addwf   0x32, f          	ADDWF	r0x1006,F
+00009d   1c03     btfss   0x3, 0           	BTFSS	STATUS,0
+00009e   03b3     decf    0x33, f          	DECF	r0x1007,F
+00009f   0832     movf    0x32, w          	MOVF	r0x1006,W
+0000a0   0433     iorwf   0x33, w          	IORWF	r0x1007,W
+0000a1   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000a2   2899     goto    0x99             	GOTO	_00152_DS_
+                                           ;	.line	83; "main.c"	PORTD = 0x81;
+0000a3   3081     movlw   0x81             	MOVLW	0x81
+0000a4   1283     bcf     0x3, 0x5         	BANKSEL	_PORTD
+0000a5   1303     bcf     0x3, 0x6         
+0000a6   0088     movwf   0x8              	MOVWF	_PORTD
+                                           ;	.line	84; "main.c"	for(i = 0; i < 20000; i++);
+0000a7   3020     movlw   0x20             	MOVLW	0x20
+0000a8   1283     bcf     0x3, 0x5         	BANKSEL	r0x1006
+0000a9   1303     bcf     0x3, 0x6         
+0000aa   00b2     movwf   0x32             	MOVWF	r0x1006
+0000ab   304e     movlw   0x4e             	MOVLW	0x4e
+0000ac   00b3     movwf   0x33             	MOVWF	r0x1007
+                                           _00155_DS_
+0000ad   30ff     movlw   0xff             	MOVLW	0xff
+0000ae   1283     bcf     0x3, 0x5         	BANKSEL	r0x1006
+0000af   1303     bcf     0x3, 0x6         
+0000b0   07b2     addwf   0x32, f          	ADDWF	r0x1006,F
+0000b1   1c03     btfss   0x3, 0           	BTFSS	STATUS,0
+0000b2   03b3     decf    0x33, f          	DECF	r0x1007,F
+0000b3   0832     movf    0x32, w          	MOVF	r0x1006,W
+0000b4   0433     iorwf   0x33, w          	IORWF	r0x1007,W
+0000b5   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000b6   28ad     goto    0xad             	GOTO	_00155_DS_
+                                           ;	.line	85; "main.c"	sendByte('O');
+0000b7   304f     movlw   0x4f             	MOVLW	0x4f
+0000b8   2118     call    0x118            	CALL	_sendByte
+                                           ;	.line	86; "main.c"	sendByte('K');
+0000b9   304b     movlw   0x4b             	MOVLW	0x4b
+0000ba   2118     call    0x118            	CALL	_sendByte
+0000bb   2910     goto    0x110            	GOTO	_00138_DS_
+                                           _00123_DS_
+                                           ;	.line	89; "main.c"	cs = dt & 0xf0;
+0000bc   30f0     movlw   0xf0             	MOVLW	0xf0
+0000bd   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+0000be   1303     bcf     0x3, 0x6         
+0000bf   0531     andwf   0x31, w          	ANDWF	r0x1005,W
+0000c0   00b0     movwf   0x30             	MOVWF	r0x1004
+                                           ;	.line	90; "main.c"	dt &= 0x0f;
+0000c1   300f     movlw   0xf              	MOVLW	0x0f
+0000c2   05b1     andwf   0x31, f          	ANDWF	r0x1005,F
+                                           ;	.line	91; "main.c"	if(dt == 0x00){
+0000c3   0831     movf    0x31, w          	MOVF	r0x1005,W
+0000c4   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000c5   28c8     goto    0xc8             	GOTO	_00120_DS_
+                                           ;	.line	92; "main.c"	cs |= 0x01;
+0000c6   1430     bsf     0x30, 0          	BSF	r0x1004,0
+0000c7   28d5     goto    0xd5             	GOTO	_00121_DS_
+                                           _00120_DS_
+                                           ;	.line	93; "main.c"	}else if(dt == 0x01){
+0000c8   1283     bcf     0x3, 0x5         	BANKSEL	r0x1005
+0000c9   1303     bcf     0x3, 0x6         
+0000ca   0831     movf    0x31, w          	MOVF	r0x1005,W
+0000cb   3a01     xorlw   0x1              	XORLW	0x01
+0000cc   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000cd   28d1     goto    0xd1             	GOTO	_00117_DS_
+                                           ;	.line	94; "main.c"	cs |= 0x05;
+0000ce   3005     movlw   0x5              	MOVLW	0x05
+0000cf   04b0     iorwf   0x30, f          	IORWF	r0x1004,F
+0000d0   28d5     goto    0xd5             	GOTO	_00121_DS_
+                                           _00117_DS_
+                                           ;	.line	96; "main.c"	cs |= 0x09;
+0000d1   3009     movlw   0x9              	MOVLW	0x09
+0000d2   1283     bcf     0x3, 0x5         	BANKSEL	r0x1004
+0000d3   1303     bcf     0x3, 0x6         
+0000d4   04b0     iorwf   0x30, f          	IORWF	r0x1004,F
+                                           _00121_DS_
+                                           ;	.line	98; "main.c"	reg_flip++;
+0000d5   1283     bcf     0x3, 0x5         	BANKSEL	r0x1003
+0000d6   1303     bcf     0x3, 0x6         
+0000d7   0aaf     incf    0x2f, f          	INCF	r0x1003,F
+0000d8   2910     goto    0x110            	GOTO	_00138_DS_
+                                           _00131_DS_
+                                           ;	.line	100; "main.c"	}else if(reg_flip == 1){
+0000d9   1283     bcf     0x3, 0x5         	BANKSEL	r0x1003
+0000da   1303     bcf     0x3, 0x6         
+0000db   082f     movf    0x2f, w          	MOVF	r0x1003,W
+0000dc   3a01     xorlw   0x1              	XORLW	0x01
+0000dd   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000de   28f7     goto    0xf7             	GOTO	_00128_DS_
+                                           ;	.line	101; "main.c"	PORTB = dt;
+0000df   0831     movf    0x31, w          	MOVF	r0x1005,W
+0000e0   1283     bcf     0x3, 0x5         	BANKSEL	_PORTB
+0000e1   1303     bcf     0x3, 0x6         
+0000e2   0086     movwf   0x6              	MOVWF	_PORTB
+                                           ;	.line	102; "main.c"	PORTD = cs;
+0000e3   1283     bcf     0x3, 0x5         	BANKSEL	r0x1004
+0000e4   1303     bcf     0x3, 0x6         
+0000e5   0830     movf    0x30, w          	MOVF	r0x1004,W
+0000e6   1283     bcf     0x3, 0x5         	BANKSEL	_PORTD
+0000e7   1303     bcf     0x3, 0x6         
+0000e8   0088     movwf   0x8              	MOVWF	_PORTD
+                                           ;	.line	103; "main.c"	PORTD |= 0x01;
+0000e9   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	104; "main.c"	PORTD |= 0x01;
+0000ea   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	105; "main.c"	PORTD &= 0xfe;
+0000eb   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	106; "main.c"	PORTD &= 0xfe;
+0000ec   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	107; "main.c"	PORTD &= 0xfe;
+0000ed   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	108; "main.c"	PORTD &= 0xfe;
+0000ee   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	109; "main.c"	PORTD |= 0x01;
+0000ef   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	110; "main.c"	PORTD |= 0x01;
+0000f0   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	111; "main.c"	PORTD |= 0x01;
+0000f1   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	112; "main.c"	PORTD |= 0x01;
+0000f2   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	113; "main.c"	reg_flip++;
+0000f3   1283     bcf     0x3, 0x5         	BANKSEL	r0x1003
+0000f4   1303     bcf     0x3, 0x6         
+0000f5   0aaf     incf    0x2f, f          	INCF	r0x1003,F
+0000f6   2910     goto    0x110            	GOTO	_00138_DS_
+                                           _00128_DS_
+                                           ;	.line	114; "main.c"	}else if(reg_flip == 2){
+0000f7   1283     bcf     0x3, 0x5         	BANKSEL	r0x1003
+0000f8   1303     bcf     0x3, 0x6         
+0000f9   082f     movf    0x2f, w          	MOVF	r0x1003,W
+0000fa   3a02     xorlw   0x2              	XORLW	0x02
+0000fb   1d03     btfss   0x3, 0x2         	BTFSS	STATUS,2
+0000fc   2910     goto    0x110            	GOTO	_00138_DS_
+                                           ;	.line	115; "main.c"	PORTB = dt;
+0000fd   0831     movf    0x31, w          	MOVF	r0x1005,W
+0000fe   1283     bcf     0x3, 0x5         	BANKSEL	_PORTB
+0000ff   1303     bcf     0x3, 0x6         
+000100   0086     movwf   0x6              	MOVWF	_PORTB
+                                           ;	.line	116; "main.c"	PORTD |= 0x03;
+000101   3003     movlw   0x3              	MOVLW	0x03
+000102   0488     iorwf   0x8, f           	IORWF	_PORTD,F
+                                           ;	.line	117; "main.c"	PORTD |= 0x01;
+000103   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	118; "main.c"	PORTD |= 0x01;
+000104   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	119; "main.c"	PORTD &= 0xfe;
+000105   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	120; "main.c"	PORTD &= 0xfe;
+000106   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	121; "main.c"	PORTD &= 0xfe;
+000107   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	122; "main.c"	PORTD &= 0xfe;
+000108   1008     bcf     0x8, 0           	BCF	_PORTD,0
+                                           ;	.line	123; "main.c"	PORTD |= 0x01;
+000109   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	124; "main.c"	PORTD |= 0x01;
+00010a   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	125; "main.c"	PORTD |= 0x01;
+00010b   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	126; "main.c"	PORTD |= 0x01;
+00010c   1408     bsf     0x8, 0           	BSF	_PORTD,0
+                                           ;	.line	127; "main.c"	reg_flip = 0;
+00010d   1283     bcf     0x3, 0x5         	BANKSEL	r0x1003
+00010e   1303     bcf     0x3, 0x6         
+00010f   01af     clrf    0x2f             	CLRF	r0x1003
+                                           _00138_DS_
+                                           ;	.line	130; "main.c"	flip_cnt = 10000;
+000110   3010     movlw   0x10             	MOVLW	0x10
+000111   1283     bcf     0x3, 0x5         	BANKSEL	r0x1001
+000112   1303     bcf     0x3, 0x6         
+000113   00ad     movwf   0x2d             	MOVWF	r0x1001
+000114   3027     movlw   0x27             	MOVLW	0x27
+000115   00ae     movwf   0x2e             	MOVWF	r0x1002
+000116   2860     goto    0x60             	GOTO	_00142_DS_
+000117   0008     return                   	RETURN	
+                                           ; exit point of _main
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _sendByte	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;1 compiler assigned register :
+                                           ;   r0x1000
+                                           ;; Starting pCode block
+                                           _sendByte	;Function start
+                                           ; 2 exit points
+                                           ;	.line	9; "main.c"	void sendByte(unsigned char data){
+000118   1283     bcf     0x3, 0x5         	BANKSEL	r0x1000
+000119   1303     bcf     0x3, 0x6         
+00011a   00ac     movwf   0x2c             	MOVWF	r0x1000
+                                           _00105_DS_
+                                           ;	.line	10; "main.c"	while(!TRMT); 
+00011b   1683     bsf     0x3, 0x5         	BANKSEL	_TXSTAbits
+00011c   1303     bcf     0x3, 0x6         
+00011d   1c98     btfss   0x18, 0x1        	BTFSS	_TXSTAbits,1
+00011e   291b     goto    0x11b            	GOTO	_00105_DS_
+                                           ;	.line	11; "main.c"	TXREG = data; 
+00011f   1283     bcf     0x3, 0x5         	BANKSEL	r0x1000
+000120   1303     bcf     0x3, 0x6         
+000121   082c     movf    0x2c, w          	MOVF	r0x1000,W
+000122   1283     bcf     0x3, 0x5         	BANKSEL	_TXREG
+000123   1303     bcf     0x3, 0x6         
+000124   0099     movwf   0x19             	MOVWF	_TXREG
+000125   0008     return                   	RETURN	
+                                           ; exit point of _sendByte
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	  204+   43 =   247 instructions (  580 byte)
+                                           
+                                           	end

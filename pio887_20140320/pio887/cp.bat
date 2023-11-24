@@ -1,0 +1,1 @@
+sdcc -V -mpic14 -p16f887 --use-non-free main.c
